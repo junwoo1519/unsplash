@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import styled, {css} from "styled-components";
-import {Link} from "react-router-dom";
 import axios from "axios";
 import {TopicItem} from "./TopicItem.Styled";
 
@@ -32,7 +31,7 @@ const Topic = () => {
             <TopicItems>
                 {
                     Topics.map((topic, index) => (
-                        <Item to={`/${topic.title}`}>{topic.title}</Item>
+                        <Item to={`/${topic.title}`} key={index}>{topic.title}</Item>
                     ))
                 }
             </TopicItems>

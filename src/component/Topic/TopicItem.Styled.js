@@ -20,7 +20,7 @@ export const TopicItem = styled(Link)`
   }
 
   ${(props) => props.shape === "following" && css`
-    :before {
+    &::before {
       position: absolute;
       right: -21px;
       width: 1px;

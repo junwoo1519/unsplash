@@ -2,12 +2,13 @@ import React from "react";
 import styled, {css} from "styled-components";
 import SearchBox from "../SearchBox";
 import {HiDotsHorizontal} from "react-icons/hi";
+import logo from "../images/Logo.png"
 
 const Header = () => {
 
     return (
         <Container>
-            <img src="../images/Logo.png" alt="Logo"/>
+            <Img src={logo}/>
             <SearchBox shape="round"/>
             <Menu>
                 <p>Brands</p>
@@ -29,10 +30,12 @@ const Container = styled.div`
   padding: 0 20px;
   height: 62px;
   color: #767676;
+`;
 
-  img {
-    margin: 0 18px 0 0;
-  }
+const Img = styled.img`
+  width: 164px;
+  height: auto;
+  margin: 0 18px 0 0;
 `;
 
 const Menu = styled.div`
@@ -78,6 +81,7 @@ const Button = styled.button`
   height: 32px;
   cursor: pointer;
   position: relative;
+  outline: 0;
 
   ${(props) => props.shape === "white" && css`
     border: 1px solid #cdcdcd;

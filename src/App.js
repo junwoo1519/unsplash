@@ -14,11 +14,12 @@ const App = () => {
             <GlobalStyled/>
             <Header/>
             <Topic/>
+
             <Switch>
                 <Route exact path={"/"} component={Home}/>
                 <Route path={"/following"} component={Following}/>
-
             </Switch>
+
         </Container>
     )
 }

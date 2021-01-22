@@ -1,10 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import styled, {css} from "styled-components";
 import SearchBox from "../SearchBox";
 import {HiDotsHorizontal} from "react-icons/hi";
 import logo from "../images/Logo.png"
+import SingPopup from "../SingPopUp";
 
 const Header = () => {
+
+    const [popUp, setPopUp] = useState(false)
+
+    const singPopUp = (v) => {
+        setPopUp(v);
+    }
 
     return (
         <Container>
@@ -16,7 +23,14 @@ const Header = () => {
                 <span><HiDotsHorizontal/></span>
             </Menu>
             <User>
-                <Button shape="white">Submit a photo</Button>
+                <Button shape="white" onClick={() => {singPopUp(true)}}>Submit a photo</Button>
+
+                {
+                    popUp && <SingPopup closePopup={() => {
+                        singPopUp(false)
+                    }}/>
+                }
+
                 <Button shape="login">Login</Button>
                 <Button shape="green">Join free</Button>
             </User>

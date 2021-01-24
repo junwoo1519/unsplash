@@ -5,19 +5,23 @@ import {Switch, Route} from "react-router-dom";
 
 import Home from "./pages/Home";
 import Following from "./pages/Following";
-import Topic from "./component/Topic";
+import Topics from "./component/Topics";
+import Login from "./pages/Login";
+import Topic from "./pages/Topic";
 
 const App = () => {
 
     return (
         <Container>
             <GlobalStyled/>
-            <Header/>
-            <Topic/>
+            {Login.pathname !== "/login" && <Header/>}
+            <Topics/>
 
             <Switch>
                 <Route exact path={"/"} component={Home}/>
                 <Route path={"/following"} component={Following}/>
+                <Route exact path={`/login`} component={Login}/>
+                <Route path={`/`} component={Topic}/>
             </Switch>
 
         </Container>

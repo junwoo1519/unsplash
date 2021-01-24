@@ -1,7 +1,7 @@
 import React from "react";
 import styled, {css} from "styled-components";
 import {GrFormClose, IoLogoFacebook} from "react-icons/all";
-import logo from "../images/Logo2.png";
+import singLogo from "../images/Logo2.png";
 import {Span} from "./SingPopUp.Styled";
 
 const SingPopup = ({closePopup}) => {
@@ -9,7 +9,7 @@ const SingPopup = ({closePopup}) => {
     return (
         <Container>
             <Content>
-                <Logo src={logo}/>
+                <Logo src={singLogo}/>
                 <h2>Login</h2>
                 <h3>To submit a photo, login.</h3>
                 <Button>
@@ -115,9 +115,19 @@ const Button = styled.button`
   color: #fff;
   font-size: 15px;
   font-weight: 500;
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover {
+    background-color: #166fe0;
+  }
 
   ${(props) => props.shape === "blackBtn" && css`
     background-color: #000;
+
+    &:hover {
+      background-color: #171717;
+    }
   `}
 `;
 
@@ -191,7 +201,8 @@ const Password = styled(Email)`
 `;
 
 const PasswordFind = styled(Span)`
-
+  height: 19px;
+  cursor: pointer;
 `;
 
 const Join = styled.div`
@@ -210,6 +221,7 @@ const Join = styled.div`
     font-size: 15px;
     color: #767676;
     border-bottom: 1px solid #767676;
+    cursor: pointer;
   }
 `;
 

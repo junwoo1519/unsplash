@@ -4,6 +4,7 @@ import SearchBox from "../SearchBox";
 import {HiDotsHorizontal} from "react-icons/hi";
 import logo from "../images/Logo.png"
 import SingPopup from "../SingPopUp";
+import {Link} from "react-router-dom";
 
 const Header = () => {
 
@@ -23,7 +24,9 @@ const Header = () => {
                 <span><HiDotsHorizontal/></span>
             </Menu>
             <User>
-                <Button shape="white" onClick={() => {singPopUp(true)}}>Submit a photo</Button>
+                <Button shape="white" onClick={() => {
+                    singPopUp(true)
+                }}>Submit a photo</Button>
 
                 {
                     popUp && <SingPopup closePopup={() => {
@@ -31,11 +34,12 @@ const Header = () => {
                     }}/>
                 }
 
-                <Button shape="login">Login</Button>
+                <Button shape="login"> <Login to={"/login"}>Login</Login></Button>
                 <Button shape="green">Join free</Button>
             </User>
         </Container>
     )
+    
 }
 
 const Container = styled.div`
@@ -110,7 +114,7 @@ const Button = styled.button`
       border: 1px solid #000;
     }
   `}
-  
+
   ${(props) => props.shape === "green" && css`
     background-color: #3cb46e;
     -webkit-border-radius: 5px;
@@ -125,10 +129,6 @@ const Button = styled.button`
   `}
 
   ${(props) => props.shape === "login" && css`
-    
-    &:hover {
-      color: #000;
-    }
     :before {
       position: absolute;
       top: 0;
@@ -139,6 +139,23 @@ const Button = styled.button`
       background-color: #d1d1d1;
     }
   `}
+`;
+
+const Login = styled(Link)`
+  color: #767676;
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  padding: 0 11px;
+  transition: .3s;
+  height: 32px;
+  cursor: pointer;
+  position: relative;
+  outline: 0;
+
+  &:hover {
+    color: #000;
+  }
 `;
 
 export default Header;

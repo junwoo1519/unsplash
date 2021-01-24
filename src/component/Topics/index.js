@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import axios from "axios";
 import {TopicItem} from "./TopicItem.Styled";
 
-const Topic = () => {
+const Topics = () => {
 
     const [Topics, setTopic] = useState([]);
 
@@ -65,4 +65,4 @@ const Item = styled(TopicItem)`
   margin: 0 0 0 32px;
 `;
 
-export default Topic;
+export default Topics;

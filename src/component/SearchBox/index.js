@@ -3,6 +3,7 @@ import styled, {css} from "styled-components";
 import {FiSearch} from "react-icons/fi";
 import {ImFolderUpload} from "react-icons/all";
 import cn from "classnames";
+import {useHistory} from "react-router-dom";
 
 const SearchBox = ({shape, title}) => {
 
@@ -16,20 +17,39 @@ const SearchBox = ({shape, title}) => {
         setFocus(false)
     }
 
+    const onSubmit = (event) => {
+        event.preventDefault()
+        console.log("@@ submit");
+        history.push(`/search/${query}`)
+    }
+
+    const history = useHistory();
+
+    const [query, setQuery] = useState("")
+
+    const onChange = (event) => {
+
+    }
+
     return (
         <Container shape={shape} title={title} className={cn("SearchBox", {isFocus: focus})}>
             {/*isFocus란 className을 추가하고 focus값 적용*/}
-            <SearchIcon>
-                <FiSearch/>
-            </SearchIcon>
-            <Input type="search"
-                   placeholder="Search free high-resolution photos"
-                   onFocus={onFocus}
-                   onBlur={onBlur}
-            />
-            <UploadIcon>
-                <ImFolderUpload/>
-            </UploadIcon>
+            <Form onSubmit={onSubmit}>
+                <SearchIcon>
+                    <FiSearch/>
+                </SearchIcon>
+                <Input type="search"
+                       placeholder="Search free high-resolution photos"
+                       onChange={(event) => {
+
+                       }}
+                       onFocus={onFocus}
+                       onBlur={onBlur}
+                />
+                <UploadIcon>
+                    <ImFolderUpload/>
+                </UploadIcon>
+            </Form>
         </Container>
     )
 }
@@ -80,6 +100,12 @@ const Container = styled.div`
     }
 
   `}
+`;
+
+const Form = styled.form`
+  display: flex;
+  align-items: center;
+  flex: 1;
 `;
 
 const Input = styled.input`

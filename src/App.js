@@ -8,6 +8,7 @@ import Following from "./pages/Following";
 import Topics from "./component/Topics";
 import Login from "./pages/Login";
 import Topic from "./pages/Topic";
+import Detail from "./pages/Home/Detail";
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
 
             <Switch>
                 <Route exact path={"/"} component={Home}/>
+                <Route path={"/detail"} component={Detail}/>
                 <Route path={"/following"} component={Following}/>
                 <Route exact path={`/login`} component={Login}/>
                 <Route path={`/`} component={Topic}/>

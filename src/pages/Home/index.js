@@ -5,6 +5,7 @@ import {HomeSpan} from "../../component/Home/HomeSpan.Styled";
 import imgBack from "../../component/images/back.jpg"
 import {Route, Switch} from "react-router-dom";
 import List from "./List";
+import Search from "./Search";
 
 const Home = () => {
 
@@ -26,6 +27,7 @@ const Home = () => {
             </Bot>
             <Switch>
                 <Route path={"/"} component={List}/>
+                <Route path={"/search/:query"} component={Search}/>
             </Switch>
         </Container>
     )

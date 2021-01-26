@@ -19,7 +19,6 @@ const SearchBox = ({shape, title}) => {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        console.log("@@ submit");
         history.push(`/search/${query}`)
     }
 
@@ -28,7 +27,7 @@ const SearchBox = ({shape, title}) => {
     const [query, setQuery] = useState("")
 
     const onChange = (event) => {
-
+        setQuery(event.target.value)
     }
 
     return (
@@ -40,9 +39,8 @@ const SearchBox = ({shape, title}) => {
                 </SearchIcon>
                 <Input type="search"
                        placeholder="Search free high-resolution photos"
-                       onChange={(event) => {
-
-                       }}
+                       value={query}
+                       onChange={onChange}
                        onFocus={onFocus}
                        onBlur={onBlur}
                 />

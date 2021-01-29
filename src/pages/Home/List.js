@@ -1,29 +1,26 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
-import axios from "axios";
 import HomeList from "../../component/Home/HomeList";
+import {useDispatch, useSelector} from "react-redux";
+import {Action} from "../../redux/reducer";
 
 const List = () => {
 
-    const [List, setList] = useState([])
+    const dispatch = useDispatch();
+    const {list} = useSelector(state => state);
 
     useEffect(() => {
         getList()
     }, [])
 
-    const getList = async () => {
-       const result = await axios.get(`https://api.unsplash.com/photos`, {
-           params: {
-               client_id: "Beb3DvOszHNZhGauHt6LdPWtoo1OrvDzIdbluYmIZDs",
-               per_page: 30
-           }
-       })
-        setList(result.data)
+    const getList = () => {
+       dispatch(Action.Creators.getList({
+       }))
     }
 
     return (
         <Container>
-            <HomeList List={List}/>
+            <HomeList List={list}/>
         </Container>
     )
 }

@@ -1,17 +1,28 @@
-import React, {useState} from "react";
+import React from "react";
 import styled, {css} from "styled-components";
 import SearchBox from "../SearchBox";
 import {HiDotsHorizontal} from "react-icons/hi";
 import logo from "../images/Logo.png"
 import SingPopup from "../SingPopUp";
 import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {Action} from "../../redux/reducer";
 
 const Header = () => {
 
-    const [popUp, setPopUp] = useState(false)
+    const dispatch = useDispatch();
+    const {popup} = useSelector(state => state);
 
-    const singPopUp = (v) => {
-        setPopUp(v);
+    const openPopup = () => {
+        dispatch(Action.Creators.updateState({
+            popup: true
+        }))
+    }
+
+    const closePopup = () => {
+        dispatch(Action.Creators.updateState({
+            popup: false
+        }))
     }
 
     return (
@@ -24,14 +35,10 @@ const Header = () => {
                 <span><HiDotsHorizontal/></span>
             </Menu>
             <User>
-                <Button shape="white" onClick={() => {
-                    singPopUp(true)
-                }}>Submit a photo</Button>
+                <Button shape="white" onClick={openPopup}>Submit a photo</Button>
 
                 {
-                    popUp && <SingPopup closePopup={() => {
-                        singPopUp(false)
-                    }}/>
+                    popup && <SingPopup closePopup={closePopup}/>
                 }
 
                 <Button shape="login"> <Login to={"/login"}>Login</Login></Button>
@@ -39,7 +46,7 @@ const Header = () => {
             </User>
         </Container>
     )
-    
+
 }
 
 const Container = styled.div`

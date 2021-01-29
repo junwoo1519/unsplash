@@ -1,5 +1,5 @@
 const initialState = {
-    popup: false,
+    list: []
 }
 
 export const Action = {
@@ -27,6 +27,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 ...action.props
+            }
+        }
+        case Action.Types.GET_LIST: {
+            return {
+                ...state,
             }
         }
     }

@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import HomeCard from "./HomeCard";
+import PhotoItem from "./PhotoItem";
 
-const HomeList = ({List}) => {
+const PhotoList = ({list}) => {
 
     return (
         <Container>
             <Row>
                 {
-                    List.map((item, index) => (
+                    list.map((item, index) => (
                         <Col key={index}>
-                            <HomeCard {...item}/>
+                            <PhotoItem {...item}/>
                         </Col>
                     ))
                 }
@@ -35,4 +35,4 @@ const Col = styled.div`
   padding: 15px;
 `;
 
-export default HomeList;
+export default PhotoList;

@@ -1,8 +1,8 @@
 import React from "react";
 import styled, {css} from "styled-components";
-import loginLogo from "../../component/images/Logo2.png"
+import loginLogo from "../../../images/Logo2.png"
 import {IoLogoFacebook} from "react-icons/all";
-import {Span} from "../../component/SingPopUp/SingPopUp.Styled";
+import {Span} from "../../components/SingPopUp/SingPopUp.Styled";
 
 const Login = () => {
 

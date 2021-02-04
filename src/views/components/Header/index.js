@@ -2,32 +2,31 @@ import React from "react";
 import styled, {css} from "styled-components";
 import SearchBox from "../SearchBox";
 import {HiDotsHorizontal} from "react-icons/hi";
-import logo from "../images/Logo.png"
 import SingPopup from "../SingPopUp";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {Action} from "../../redux/reducer";
+import {Action} from "../../../redux/reducer";
 
 const Header = () => {
 
+    const history = useHistory();
     const dispatch = useDispatch();
     const {popup} = useSelector(state => state);
 
-    const openPopup = () => {
+    const handlePopup = (status) => {
         dispatch(Action.Creators.updateState({
-            popup: true
-        }))
-    }
-
-    const closePopup = () => {
-        dispatch(Action.Creators.updateState({
-            popup: false
+            popup: status
         }))
     }
 
     return (
         <Container>
-            <Img src={logo}/>
+            <Logo onClick={() => history.push("/")}>
+                <svg width="32" height="32" className="_1Jlgk" version="1.1" viewBox="0 0 32 32"
+                     aria-labelledby="unsplash-home" aria-hidden="false"><title id="unsplash-home">Unsplash Home</title>
+                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                </svg>
+            </Logo>
             <SearchBox shape="round"/>
             <Menu>
                 <p>Brands</p>
@@ -35,10 +34,10 @@ const Header = () => {
                 <span><HiDotsHorizontal/></span>
             </Menu>
             <User>
-                <Button shape="white" onClick={openPopup}>Submit a photo</Button>
+                <Button shape="white" onClick={() => handlePopup(true)}>Submit a photo</Button>
 
                 {
-                    popup && <SingPopup closePopup={closePopup}/>
+                    popup && <SingPopup closePopup={() => handlePopup(false)}/>
                 }
 
                 <Button shape="login"> <Login to={"/login"}>Login</Login></Button>
@@ -57,9 +56,7 @@ const Container = styled.div`
   color: #767676;
 `;
 
-const Img = styled.img`
-  width: 164px;
-  height: auto;
+const Logo = styled.div`
   margin: 0 18px 0 0;
 `;
 

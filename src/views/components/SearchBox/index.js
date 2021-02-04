@@ -5,7 +5,7 @@ import {ImFolderUpload} from "react-icons/all";
 import cn from "classnames";
 import {useHistory} from "react-router-dom";
 
-const SearchBox = ({shape, title}) => {
+const SearchBox = ({shape}) => {
 
     const [focus, setFocus] = useState(false);
 
@@ -31,14 +31,14 @@ const SearchBox = ({shape, title}) => {
     }
 
     return (
-        <Container shape={shape} title={title} className={cn("SearchBox", {isFocus: focus})}>
+        <Container className={cn("SearchBox", {isFocus: focus}, shape)}>
             {/*isFocus란 className을 추가하고 focus값 적용*/}
             <Form onSubmit={onSubmit}>
                 <SearchIcon>
                     <FiSearch/>
                 </SearchIcon>
                 <Input type="search"
-                       placeholder="Search free high-resolution photos"
+                       placeholder="Index free high-resolution photos"
                        value={query}
                        onChange={onChange}
                        onFocus={onFocus}
@@ -61,28 +61,23 @@ const Container = styled.div`
   transition: .3s;
   color: #767676;
 
-  ${(props) => props.shape === "round" && css`
-    -webkit-border-radius: 24px;
-    -moz-border-radius: 24px;
+  &.round {
     border-radius: 24px;
     border: 1px solid transparent;
     // ex) border-top: 3px solid transparent;
     // border hover효과를 검은색 테두리 생기는걸 방지 해주기위해 처음부터 투명한 border 속성 부여
 
     &:hover {
-      border: 1px solid #aaaaaa;
-      //ex) border-top: 3px solid #aaaaaa; 적용하려는 border 네임과 속성을 맞춰줘야함
+      border-color:#aaa;
     }
 
     &.isFocus {
       background-color: #fff;
       border: 1px solid #aaaaaa;
     }
-  `}
+  }
 
-  ${(props) => props.title === "title" && css`
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
+  &.square {
     border-radius: 5px;
     height: 54px;
     outline: none;
@@ -96,8 +91,7 @@ const Container = styled.div`
       background-color: #fff;
       box-shadow: 0 0 5px 5px rgba(0, 0, 0, .6);
     }
-
-  `}
+  }
 `;
 
 const Form = styled.form`

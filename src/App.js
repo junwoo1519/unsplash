@@ -1,14 +1,14 @@
 import React from "react";
 import styled, {createGlobalStyle} from "styled-components";
-import Header from "./component/Header";
+import Header from "./views/components/Header";
 import {Switch, Route} from "react-router-dom";
 
-import Home from "./pages/Home";
-import Following from "./pages/Following";
-import Topics from "./component/Topics";
-import Login from "./pages/Login";
-import Detail from "./pages/Home/Detail";
-import Search from "./pages/Home/Search";
+import Home from "./views/pages/Home";
+import Following from "./views/pages/Following";
+import Topics from "./views/components/Topics";
+import Login from "./views/pages/Login";
+import Detail from "./views/pages/Home/Detail";
+import Search from "./views/pages/Search";
 
 const App = () => {
 
@@ -48,6 +48,7 @@ const GlobalStyled = createGlobalStyle`
     max-width: 100%;
     vertical-align: top;
   }
+  
 `;
 
 export default App;

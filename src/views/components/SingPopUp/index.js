@@ -1,7 +1,7 @@
 import React from "react";
 import styled, {css} from "styled-components";
 import {GrFormClose, IoLogoFacebook} from "react-icons/all";
-import singLogo from "../images/Logo2.png";
+import singLogo from "../../../images/Logo2.png";
 import {Span} from "./SingPopUp.Styled";
 
 const SingPopup = ({closePopup}) => {

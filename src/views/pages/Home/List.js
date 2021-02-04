@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import styled from "styled-components";
-import HomeList from "../../component/Home/HomeList";
+import PhotoList from "../../components/Photo/PhotoList";
 import {useDispatch, useSelector} from "react-redux";
-import {Action} from "../../redux/reducer";
+import {Action} from "../../../redux/reducer";
 
 const List = () => {
 
@@ -20,7 +20,7 @@ const List = () => {
 
     return (
         <Container>
-            <HomeList List={list}/>
+            <PhotoList list={list}/>
         </Container>
     )
 }

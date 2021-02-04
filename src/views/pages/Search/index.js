@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import axios from "axios";
-import HomeList from "../../component/Home/HomeList";
+import PhotoList from "../../components/Photo/PhotoList";
 
 const Search = ({match}) => {
 
@@ -28,7 +28,7 @@ const Search = ({match}) => {
 
     return (
         <Container>
-            <HomeList List={data.results}/>
+            <PhotoList List={data.results}/>
         </Container>
     )
 }

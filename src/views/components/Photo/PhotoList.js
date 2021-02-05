@@ -1,20 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 import PhotoItem from "./PhotoItem";
+import {composeList} from "../../../lib/common";
 
 const PhotoList = ({list}) => {
 
+    const listGroups = composeList(list);
+
     return (
         <Container>
-            <Row>
-                {
-                    list.map((item, index) => (
-                        <Col key={index}>
-                            <PhotoItem {...item}/>
-                        </Col>
-                    ))
-                }
-            </Row>
+            {
+                listGroups.map((group, index) => (
+                    <Group>
+                        {
+                            group.map((item, index) => (
+                                <Col key={index}>
+                                    <PhotoItem {...item}/>
+                                </Col>
+                            ))
+                        }
+                    </Group>
+                ))
+            }
         </Container>
     )
 }
@@ -22,16 +29,14 @@ const PhotoList = ({list}) => {
 const Container = styled.div`
   max-width: 1300px;
   margin: 0 auto;
+  display: flex;
 `;
 
-const Row = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -15px;
+const Group = styled.div`
+  width: 33.3333%;
 `;
 
 const Col = styled.div`
-  width: 33.3333%;
   padding: 15px;
 `;
 

@@ -5,13 +5,13 @@ import {HiDotsHorizontal} from "react-icons/hi";
 import SingPopup from "../SingPopUp";
 import {Link, useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {Action} from "../../../redux/reducer";
+import {Action} from "../../../redux/app/redux";
 
 const Header = () => {
 
     const history = useHistory();
     const dispatch = useDispatch();
-    const {popup} = useSelector(state => state);
+    const app = useSelector(state => state.app);
 
     const handlePopup = (status) => {
         dispatch(Action.Creators.updateState({
@@ -37,7 +37,7 @@ const Header = () => {
                 <Button shape="white" onClick={() => handlePopup(true)}>Submit a photo</Button>
 
                 {
-                    popup && <SingPopup closePopup={() => handlePopup(false)}/>
+                    app.popup && <SingPopup closePopup={() => handlePopup(false)}/>
                 }
 
                 <Button shape="login"> <Login to={"/login"}>Login</Login></Button>
@@ -58,6 +58,7 @@ const Container = styled.div`
 
 const Logo = styled.div`
   margin: 0 18px 0 0;
+  cursor: pointer;
 `;
 
 const Menu = styled.div`

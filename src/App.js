@@ -7,7 +7,6 @@ import Home from "./views/pages/Home";
 import Following from "./views/pages/Following";
 import Topics from "./views/components/Topics";
 import Login from "./views/pages/Login";
-import Detail from "./views/pages/Home/Detail";
 import Search from "./views/pages/Search";
 
 const App = () => {
@@ -20,7 +19,6 @@ const App = () => {
 
             <Switch>
                 <Route exact path={"/"} component={Home}/>
-                <Route path={"/detail"} component={Detail}/>
                 <Route path={"/following"} component={Following}/>
                 <Route path={`/login`} component={Login}/>
                 <Route path={"/search/:query"} component={Search}/>

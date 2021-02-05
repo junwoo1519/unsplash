@@ -1,16 +1,16 @@
-import {call, put, takeLatest} from "redux-saga/effects";
-import {Action} from "./reducer";
-import API from "../api";
+import {fork, all} from "redux-saga/effects";
+import appSaga from "./app/saga"
+import photoSaga from "./photo/saga"
+import searchSaga from "./search/saga"
 
 const saga = function* () {
-    yield takeLatest(Action.Types.GET_LIST, function* (action) {
-        const result = yield call(API.getList)
-        if (result.data) {
-            yield put(Action.Creators.updateState({
-                list: result.data
-            }))
-        }
-    })
+    yield all(
+        [
+            fork(appSaga),
+            fork(photoSaga),
+            fork(searchSaga)
+        ]
+    )
 }
 
 export default saga;

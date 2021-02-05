@@ -15,7 +15,6 @@ export const Container = styled.div`
 export const Thumb = styled.div`
 
   img {
-    height: 400px;
     width: 100%;
     object-fit: cover;
   }

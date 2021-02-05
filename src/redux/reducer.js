@@ -1,40 +1,13 @@
-const initialState = {
-    list: []
-}
+import {combineReducers} from "redux";
+import appReducer from "./app/redux";
+import photoReducer from "./photo/redux";
+import searchReducer from "./photo/redux";
 
-export const Action = {
-    Types: {
-        UPDATE_STATE: "UPDATE_STATE",
-        GET_LIST: "GET_LIST"
-    },
+const reducer = combineReducers({
+    app: appReducer,
+    photo: photoReducer,
+    search: searchReducer
 
-    Creators: {
-        updateState: (props) => ({
-            type: Action.Types.UPDATE_STATE,
-            props
-        }),
-
-        getList: () => ({
-            type: Action.Types.GET_LIST,
-        })
-    }
-}
-
-const reducer = (state = initialState, action) => {
-    switch (action.type) {
-        default: return state;
-        case Action.Types.UPDATE_STATE: {
-            return {
-                ...state,
-                ...action.props
-            }
-        }
-        case Action.Types.GET_LIST: {
-            return {
-                ...state,
-            }
-        }
-    }
-}
+})
 
 export default reducer;

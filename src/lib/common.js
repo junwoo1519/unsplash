@@ -2,6 +2,7 @@ export const composeList = (list) => {
     let group1 = [];
     let group2 = [];
     let group3 = [];
+    if(list === undefined) return;
 
     for (let i = 0; i < list.length; i++) {
         if (i % 3 === 0) {

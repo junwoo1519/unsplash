@@ -16,9 +16,9 @@ const SearchPhotoContainer = ({match}) => {
 
     const searchPhotos = () => {
         dispatch(Action.Creators.searchPhotos({
+            query,
             client_id: "Beb3DvOszHNZhGauHt6LdPWtoo1OrvDzIdbluYmIZDs",
             per_page: 15,
-            query
         }))
     }
 

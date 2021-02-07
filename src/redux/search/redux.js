@@ -1,13 +1,17 @@
 const initialState = {
-    total : undefined,
-    total_pages : undefined,
-    results: []
+    photos: {
+        results: []
+    },
+    collections: {
+        results: []
+    }
 }
 
 export const Action = {
     Types: {
         UPDATE_STATE: "SEARCH/UPDATE_STATE",
-        SEARCH_PHOTOS: "SEARCH_PHOTOS"
+        SEARCH_PHOTOS: "SEARCH_PHOTOS",
+        SEARCH_COLLECTIONS: "SEARCH_COLLECTIONS"
     },
 
     Creators: {
@@ -18,6 +22,11 @@ export const Action = {
 
         searchPhotos: (payload) => ({
             type: Action.Types.SEARCH_PHOTOS,
+            payload
+        }),
+
+        searchCollections: (payload) => ({
+            type: Action.Types.SEARCH_COLLECTIONS,
             payload
         })
     }

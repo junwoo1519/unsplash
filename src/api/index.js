@@ -14,6 +14,12 @@ const API = {
         url: "https://api.unsplash.com/search/photos",
         method: "get",
         params: data
+    }),
+
+    searchCollections: (data) => axios({
+        url: "https://api.unsplash.com/search/collections",
+        method: "get",
+        params: data
     })
 }
 

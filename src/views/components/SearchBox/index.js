@@ -19,7 +19,7 @@ const SearchBox = ({shape}) => {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        history.push(`/search/${query}`)
+        history.push(`/search/photos/${query}`)
     }
 
     const history = useHistory();

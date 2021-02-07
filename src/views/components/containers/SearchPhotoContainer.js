@@ -8,11 +8,11 @@ const SearchPhotoContainer = ({match}) => {
 
     const query = match.params.query;
     const dispatch = useDispatch();
-    const {results} = useSelector(state => state.search);
+    const {photos} = useSelector(state => state.search);
 
     useEffect(() => {
         searchPhotos();
-    }, [])
+    }, [query])
 
     const searchPhotos = () => {
         dispatch(Action.Creators.searchPhotos({
@@ -24,7 +24,7 @@ const SearchPhotoContainer = ({match}) => {
 
     return (
         <Container>
-            <PhotoList list={results}/>
+            <PhotoList list={photos.results}/>
         </Container>
     )
 }

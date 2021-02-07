@@ -27,9 +27,9 @@ const PhotoList = ({list}) => {
 }
 
 const Container = styled.div`
-  max-width: 1300px;
-  margin: 0 auto;
   display: flex;
+  margin-left: -12px;
+  margin-right: -12px;
 `;
 
 const Group = styled.div`
@@ -37,7 +37,7 @@ const Group = styled.div`
 `;
 
 const Col = styled.div`
-  padding: 15px;
+  padding: 12px;
 `;
 
 export default PhotoList;

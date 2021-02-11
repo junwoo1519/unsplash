@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import axios from "axios";
+import {useLocation} from "react-router-dom"
 import {TopicItem} from "./TopicItem.Styled";
 
 const Topics = () => {
@@ -22,6 +23,11 @@ const Topics = () => {
         setTopic(result.data)
     }
 
+    const location = useLocation();
+    const withTopics = location.pathname === "/" || location.pathname.startsWith("/topics")
+
+    if (!withTopics) return null;
+
     return (
         <Container>
             <Nav>
@@ -31,7 +37,7 @@ const Topics = () => {
             <TopicItems>
                 {
                     Topics.map((topic, index) => (
-                        <Item to={`/${topic.title}`} key={index}>{topic.title}</Item>
+                        <Item to={`/topics/${topic.title}`} key={index}>{topic.title}</Item>
                     ))
                 }
             </TopicItems>

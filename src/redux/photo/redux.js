@@ -1,5 +1,7 @@
 const initialState = {
-    list: []
+    list: {
+        results:[]
+    }
 }
 
 export const Action = {
@@ -23,7 +25,8 @@ export const Action = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        default: return state;
+        default:
+            return state;
         case Action.Types.UPDATE_STATE: {
             return {
                 ...state,

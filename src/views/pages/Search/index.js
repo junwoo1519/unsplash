@@ -3,23 +3,36 @@ import styled from "styled-components";
 import SearchPhotoContainer from "../../components/containers/SearchPhotoContainer";
 import PageTitle from "../../components/Title/PageTitle";
 import {ContentContainer} from "../../components/Layout/Layout.Styled";
-import {Route, Switch} from "react-router-dom";
 import SearchCollectionContainer from "../../components/containers/SearchCollectionContainer";
 import SearchAppbar from "../../components/Search/SearchAppbar";
+import SearchUserContainer from "../../components/containers/SearchUserContainer";
 
-const Search = ({location}) => {
+const Search = (props) => {
 
-    const query = location.pathname.split("/").pop();
+    const query = props.match.params.query;
+    const category = props.match.params.category;
+
+    const Render = () => {
+        switch (category) {
+            default: return null;
+            case "photos" : {
+                return <SearchPhotoContainer {...props}/>
+            }
+            case "collections" : {
+                return <SearchCollectionContainer {...props}/>
+            }
+            case "users" : {
+                return <SearchUserContainer {...props}/>
+            }
+        }
+    }
 
     return (
         <Container>
+            <SearchAppbar query={query} category={category}/>
             <ContentContainer>
-            <SearchAppbar query={query}/>
                 <PageTitle title={query}/>
-                <Switch>
-                    <Route path={"/search/photos/:query"} component={SearchPhotoContainer}/>
-                    <Route path={"/search/collections/:query"} component={SearchCollectionContainer}/>
-                </Switch>
+                <Render/>
             </ContentContainer>
         </Container>
     )

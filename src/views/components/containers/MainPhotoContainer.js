@@ -14,7 +14,10 @@ const MainPhotoContainer = () => {
     }, [])
 
     const getList = () => {
-        dispatch(Action.Creators.getPhotos({}))
+        dispatch(Action.Creators.getPhotos({
+            client_id: "Beb3DvOszHNZhGauHt6LdPWtoo1OrvDzIdbluYmIZDs",
+            per_page: 15,
+        }))
     }
     
     return (

@@ -4,7 +4,6 @@ import styled from "styled-components";
 const CollectionItem = (props) => {
 
     const {
-        links,
         cover_photo
     } = props;
 

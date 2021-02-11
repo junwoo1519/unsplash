@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import {FiSearch} from "react-icons/fi";
 import {ImFolderUpload} from "react-icons/all";
 import cn from "classnames";

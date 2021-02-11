@@ -1,26 +1,31 @@
 import axios from "axios";
 
+const axiosInstance = axios.create({
+    baseURL: "https://api.unsplash.com",
+    timeout: 6000,
+})
+
+const request = (method, url, data) => {
+
+    const config = {
+        url,
+        method,
+    };
+
+    if (method === "get") {
+        config.params = data;
+    } else {
+        config.data = data;
+    }
+
+    return axiosInstance(config)
+}
+
 const API = {
-    getPhotos: () => {
-        return axios.get(`https://api.unsplash.com/photos`, {
-            params: {
-                client_id:"Beb3DvOszHNZhGauHt6LdPWtoo1OrvDzIdbluYmIZDs",
-                per_page: 15,
-            }
-        })
-    },
+    getPhotos: (data) => request("get", "/photos", data),
+    searchPhotos: (data) => request("get", "/search/photos", data),
+    searchCollections: (data) => request("get", "/search/collections", data)
 
-    searchPhotos: (data) => axios({
-        url: "https://api.unsplash.com/search/photos",
-        method: "get",
-        params: data
-    }),
-
-    searchCollections: (data) => axios({
-        url: "https://api.unsplash.com/search/collections",
-        method: "get",
-        params: data
-    })
 }
 
 export default API;

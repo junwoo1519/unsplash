@@ -15,13 +15,14 @@ const App = () => {
         <Container>
             <GlobalStyled/>
             {Login.pathname !== "/login" && <Header/>}
+
             <Topics/>
 
             <Switch>
                 <Route exact path={"/"} component={Home}/>
                 <Route path={"/following"} component={Following}/>
                 <Route path={`/login`} component={Login}/>
-                <Route path={"/search"} component={Search}/>
+                <Route path={"/search/:category/:query"} component={Search}/>
             </Switch>
 
         </Container>

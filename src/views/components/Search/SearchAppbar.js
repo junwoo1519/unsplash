@@ -1,32 +1,87 @@
 import React from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import cn from "classnames"
+import {IconCollections, IconPhotos, IconUsers} from "../../../icons";
 
-const SearchAppbar = ({query}) => {
+const SearchAppbar = ({category, query}) => {
+
+    const searchBarRoute = [
+        {
+            name: "photos",
+            to: `/search/photos/${query}`,
+            icon: <IconPhotos/>,
+        },
+        {
+            name: "collections",
+            to: `/search/collections/${query}`,
+            icon: <IconCollections/>,
+        },
+        {
+            name: "users",
+            to: `/search/users/${query}`,
+            icon: <IconUsers/>,
+        }
+    ]
 
     return (
         <Container>
             <Menus>
-                <MenuItem to={`/search/photos/${query}`}>photos</MenuItem>
-                <MenuItem to={`/search/collections/${query}`}>collections</MenuItem>
-                <MenuItem to={`/search/users/${query}`}>users</MenuItem>
+                {
+                    searchBarRoute.map((item, i) => (
+                        <MenuItem key={i} to={item.to} className={cn({isActive: category === item.name})}>
+                            {item.icon}
+                            {item.name}
+                        </MenuItem>
+                    ))
+                }
             </Menus>
         </Container>
     )
 }
 
 const Container = styled.div`
-  padding: 0 50px;
+  padding: 0 20px;
+  border-bottom: 1px solid #d1d1d1;
 `;
 
 const Menus = styled.div`
   display: flex;
+  height: 55px;
 `;
 
 const MenuItem = styled(Link)`
-  padding: 20px 10px;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  font-size: 14px;
+  font-weight: 400;
   text-transform: capitalize;
-  color: #333;
+  color: #767676;
+  margin-right: 32px;
+  border-bottom: 2px solid transparent;
+
+  &.isActive {
+    border-color:#000;
+    
+  }
+
+  &.isActive,
+  &:hover {
+    color: #000;
+
+    svg {
+      opacity: 1;
+    }
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    opacity: .3;
+  }
+
 `;
 
 export default SearchAppbar;

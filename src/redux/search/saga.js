@@ -20,6 +20,13 @@ const saga = function* () {
                     collections: result.data
                 }))
             }
+        }),
+
+        takeLatest(Action.Types.SEARCH_USER, function* ({payload}) {
+            const result = yield call(API.searchUsers, payload)
+            yield put(Action.Creators.updateState({
+                users: result.data
+            }))
         })
 
     ])

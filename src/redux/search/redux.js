@@ -4,6 +4,9 @@ const initialState = {
     },
     collections: {
         results: []
+    },
+    users: {
+        results: []
     }
 }
 
@@ -11,7 +14,8 @@ export const Action = {
     Types: {
         UPDATE_STATE: "SEARCH/UPDATE_STATE",
         SEARCH_PHOTOS: "SEARCH_PHOTOS",
-        SEARCH_COLLECTIONS: "SEARCH_COLLECTIONS"
+        SEARCH_COLLECTIONS: "SEARCH_COLLECTIONS",
+        SEARCH_USER: "SEARCH_USER"
     },
 
     Creators: {
@@ -27,6 +31,11 @@ export const Action = {
 
         searchCollections: (payload) => ({
             type: Action.Types.SEARCH_COLLECTIONS,
+            payload
+        }),
+
+        searchUsers: (payload) => ({
+            type: Action.Types.SEARCH_USER,
             payload
         })
     }

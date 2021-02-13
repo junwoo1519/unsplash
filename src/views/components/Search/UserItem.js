@@ -5,7 +5,7 @@ const UserItem = () => {
 
     return (
         <Container>
-            serItem
+            UserItem
         </Container>
     )
 }

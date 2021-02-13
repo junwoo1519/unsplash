@@ -17,11 +17,13 @@ const SearchList = ({list, render}) => {
 }
 
 const Container = styled.div`
-
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const Col = styled.div`
-    
+  width: 33.3333%;
+  padding: 12px;
 `;
 
 export default SearchList;

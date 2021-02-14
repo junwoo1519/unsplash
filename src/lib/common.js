@@ -1,20 +1,21 @@
-export const composeList = (list) => {
-    let group1 = [];
-    let group2 = [];
-    let group3 = [];
-    if(list === undefined) return;
+export const composeList = (data) => {
+    let groups = [[], [], []];
+    let groupHeight = [0, 0, 0]; // groups의 높이를 체크
 
-    for (let i = 0; i < list.length; i++) {
-        if (i % 3 === 0) {
-            group1.push(list[i]);
-        }
-        if (i % 3 === 1) {
-            group2.push(list[i]);
-        }
-        if (i % 3 === 2) {
-            group3.push(list[i]);
-        }
+    if (data === undefined) return;
+
+    for (let i = 0; i < data.length; i++) {
+        const width = data[i].width;
+        const height = data[i].height;
+        const ratio = height / width;
+
+        const minValue = Math.min(...groupHeight); // groupHeight 배열중 최소값을 할당
+        const minIndex = groupHeight.indexOf(minValue); // 배열중 가장낮은 값의 위치를 할당
+
+        groups[minIndex].push(data[i]);
+        groupHeight[minIndex] = groupHeight[minIndex] + ratio;
     }
 
-    return [group1, group2, group3];
+
+    return groups;
 }

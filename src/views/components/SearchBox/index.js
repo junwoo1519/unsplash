@@ -34,7 +34,7 @@ const SearchBox = ({shape}) => {
         <Container className={cn("SearchBox", {isFocus: focus}, shape)}>
             {/*isFocus란 className을 추가하고 focus값 적용*/}
             <Form onSubmit={onSubmit}>
-                <SearchIcon>
+                <SearchIcon onClick={onSubmit}>
                     <FiSearch/>
                 </SearchIcon>
                 <Input type="search"

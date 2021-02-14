@@ -13,10 +13,10 @@ const SearchUserContainer = ({match}) => {
     const {users} = useSelector(state => state.search)
 
     useEffect(() => {
-        searchusers();
+        searchUsers();
     }, [])
 
-    const searchusers = () => {
+    const searchUsers = () => {
         dispatch(Action.Creators.searchUsers({
             query,
             client_id: Consts.CLIENT_ID,

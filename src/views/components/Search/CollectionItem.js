@@ -23,13 +23,13 @@ const CollectionItem = (props) => {
                 <ThumbItemRight>
                     <Image className={"right"}>
                         {
-                            preview_photos[0] &&
+                            preview_photos[1] &&
                             <img src={preview_photos[1]?.urls.regular} alt=""/>
                         }
                     </Image>
                     <Image className={"right"}>
                         {
-                            preview_photos[0] &&
+                            preview_photos[2] &&
                             <img src={preview_photos[2]?.urls.regular} alt=""/>
                         }
                     </Image>
@@ -74,6 +74,7 @@ const Image = styled.div`
 
   &.right {
     height: calc(50% - 1px);
+    background-color: #eee;
   }
 
   img {

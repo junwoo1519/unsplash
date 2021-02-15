@@ -10,11 +10,11 @@ const PhotoList = ({list}) => {
     return (
         <Container>
             {
-                listGroups.map((group, index) => (
-                    <Group>
+                listGroups.map((group, i) => (
+                    <Group key={i}>
                         {
-                            group.map((item, index) => (
-                                <Col key={index}>
+                            group.map((item, i) => (
+                                <Col key={i}>
                                     <PhotoItem {...item}/>
                                 </Col>
                             ))

@@ -25,8 +25,6 @@ const TopicsMenu = ({topics}) => {
         topicItemsRef.current.scrollLeft = Math.min(scrollLeft + 200, maxScroll);
     }
 
-    console.log("@@ maxScroll", maxScroll);
-
     return (
         <Container>
             {

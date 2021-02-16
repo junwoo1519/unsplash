@@ -8,6 +8,7 @@ import Following from "./views/pages/Following";
 import Topics from "./views/components/Topics";
 import Login from "./views/pages/Login";
 import Search from "./views/pages/Search";
+import Photo from "./views/pages/Photo";
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
                 <Route path={"/following"} component={Following}/>
                 <Route path={`/login`} component={Login}/>
                 <Route path={"/search/:category/:query"} component={Search}/>
+                <Route path={`/photo/:id`} component={Photo}/>
             </Switch>
 
         </Container>

@@ -2,28 +2,27 @@ import React, {useEffect} from "react";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../../redux/photo/redux";
-import PhotoList from "../Photo/PhotoList";
 import Consts from "../../../constants";
+import Photo from "../Photo/Photo";
 
-const MainPhotoContainer = () => {
+const PhotoContainer = () => {
 
     const dispatch = useDispatch();
-    const {list} = useSelector(state => state.photo);
+    const {TopPhoto} = useSelector(state => state.photo);
 
     useEffect(() => {
-        getList()
+        getPhoto()
     }, [])
 
-    const getList = () => {
-        dispatch(Action.Creators.getPhotos({
+    const getPhoto = () => {
+        dispatch(Action.Creators.getPhoto({
             client_id: Consts.CLIENT_ID,
-            per_page: 15,
         }))
     }
-    
+
     return (
         <Container>
-            <PhotoList list={list}/>
+            <Photo photo={TopPhoto}/>
         </Container>
     )
 }
@@ -32,4 +31,4 @@ const Container = styled.div`
 
 `;
 
-export default MainPhotoContainer;
+export default PhotoContainer;

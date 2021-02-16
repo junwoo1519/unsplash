@@ -11,6 +11,15 @@ const saga = function* () {
                     list: result.data
                 }))
             }
+        }),
+
+        takeLatest(Action.Types.GET_PHOTO, function* ({payload}) {
+            const result = yield call(API.getPhoto, payload);
+            if (result.data) {
+                yield put(Action.Creators.updateState({
+                    TopPhoto: result
+                }))
+            }
         })
     ])
 }

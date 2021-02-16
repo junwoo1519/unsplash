@@ -32,6 +32,7 @@ const Search = (props) => {
             <SearchAppbar query={query} category={category}/>
             <ContentContainer>
                 <PageTitle title={query}/>
+
                 <Render/>
             </ContentContainer>
         </Container>

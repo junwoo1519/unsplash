@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PhotoItem from "./PhotoItem";
 import {composeList} from "../../../lib/common";
+import {Link} from "react-router-dom";
 
 const PhotoList = ({list}) => {
 
@@ -14,9 +15,11 @@ const PhotoList = ({list}) => {
                     <Group key={i}>
                         {
                             group.map((item, i) => (
-                                <Col key={i}>
-                                    <PhotoItem {...item}/>
-                                </Col>
+                                <Link to={`/photo/${item.id}`}>
+                                    <Col key={i}>
+                                        <PhotoItem {...item}/>
+                                    </Col>
+                                </Link>
                             ))
                         }
                     </Group>
@@ -37,7 +40,8 @@ const Group = styled.div`
 `;
 
 const Col = styled.div`
-  padding: 12px;
+  cursor: pointer;
+  margin: 12px;
 `;
 
 export default PhotoList;

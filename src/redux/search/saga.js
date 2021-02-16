@@ -3,7 +3,7 @@ import {Action} from "./redux";
 import API from "../../api";
 
 const saga = function* () {
-    yield  all([
+    yield all([
         takeLatest(Action.Types.SEARCH_PHOTOS, function* ({payload}) {
             const result = yield call(API.searchPhotos, payload);
             if (result.data) {

@@ -36,13 +36,6 @@ const Topics = () => {
                 <Editorial to={"/"}>Editorial</Editorial>
                 <Following to={"/following"} shape="following">Following</Following>
             </Nav>
-            {/*<TopicItems>*/}
-            {/*    {*/}
-            {/*        Topics.map((topic, index) => (*/}
-            {/*            <Item to={`/topics/${topic.title}`} key={index}>{topic.title}</Item>*/}
-            {/*        ))*/}
-            {/*    }*/}
-            {/*</TopicItems>*/}
             <TopicsMenu topics={topics}/>
         </Container>
     )
@@ -59,10 +52,6 @@ const Nav = styled.div`
   align-items: center;
   padding: 0 20px;
 `;
-
-// const TopicItems = styled(TopicItem)`
-//   margin: 0 0 0 32px;
-// `;
 
 const Editorial = styled(TopicItem)`
 `;

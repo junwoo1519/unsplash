@@ -38,7 +38,7 @@ const SearchBox = ({shape}) => {
                     <FiSearch/>
                 </SearchIcon>
                 <Input type="search"
-                       placeholder="Index free high-resolution photos"
+                       placeholder="Search free high-resolution photos"
                        value={query}
                        onChange={onChange}
                        onFocus={onFocus}

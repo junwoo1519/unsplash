@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../../redux/search/redux";
 import SearchList from "../Search/SearchList";
 import CollectionItem from "../Search/CollectionItem";
+import Consts from "../../../constants";
 
 const SearchCollectionContainer = ({match}) => {
 
@@ -18,7 +19,7 @@ const SearchCollectionContainer = ({match}) => {
     const searchCollection = () => {
         dispatch(Action.Creators.searchCollections({
             query,
-            client_id: "Beb3DvOszHNZhGauHt6LdPWtoo1OrvDzIdbluYmIZDs",
+            client_id: Consts.CLIENT_ID,
             per_page: 15,
         }))
 

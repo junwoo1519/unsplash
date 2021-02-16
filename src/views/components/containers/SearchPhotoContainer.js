@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../../redux/search/redux";
 import PhotoList from "../Photo/PhotoList";
+import Consts from "../../../constants";
 
 const SearchPhotoContainer = ({match}) => {
 
@@ -17,7 +18,7 @@ const SearchPhotoContainer = ({match}) => {
     const searchPhotos = () => {
         dispatch(Action.Creators.searchPhotos({
             query,
-            client_id: "Beb3DvOszHNZhGauHt6LdPWtoo1OrvDzIdbluYmIZDs",
+            client_id: Consts.CLIENT_ID,
             per_page: 15,
         }))
     }

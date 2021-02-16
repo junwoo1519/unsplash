@@ -4,7 +4,8 @@ import {Link} from "react-router-dom";
 import cn from "classnames"
 import {IconCollections, IconPhotos, IconUsers} from "../../../icons";
 
-const SearchAppbar = ({category, query}) => {
+const
+    SearchAppbar = ({category, query}) => {
 
     const searchBarRoute = [
         {

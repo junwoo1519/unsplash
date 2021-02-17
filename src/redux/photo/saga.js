@@ -17,10 +17,19 @@ const saga = function* () {
             const result = yield call(API.getPhoto, payload);
             if (result.data) {
                 yield put(Action.Creators.updateState({
-                    TopPhoto: result
+                    topPhoto: result.data
                 }))
             }
-        })
+        }),
+
+        takeLatest(Action.Types.GET_RELATED_PHOTOS, function* ({payload}) {
+            const result = yield call(API.getRelatedPhotos, payload);
+            if (result.data) {
+                yield put(Action.Creators.updateState({
+                    relatedPhoto: result.data
+                }))
+            }
+        }),
     ])
 }
 

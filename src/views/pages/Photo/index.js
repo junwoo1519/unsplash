@@ -1,16 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import PhotoContainer from "../../components/containers/PhotoContainer";
+import PhotoRelatedContainer from "../../components/containers/PhoroRelatedContainer";
 
 const Photo = (props) => {
 
-    const id = props.match.params.id;
-    
-    console.log("@@ id", id);
-
     return (
         <Container>
-            <PhotoContainer id={id}/>
+            <PhotoContainer {...props}/>
+            <PhotoRelatedContainer {...props}/>
         </Container>
     )
 }

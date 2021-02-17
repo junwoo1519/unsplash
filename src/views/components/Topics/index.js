@@ -21,6 +21,8 @@ const Topics = () => {
                 per_page: 30
 
             }
+
+
         })
         setTopic(result.data)
     }

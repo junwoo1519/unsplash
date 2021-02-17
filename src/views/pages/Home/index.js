@@ -4,7 +4,9 @@ import Visual from "../../components/Home/Visual";
 import MainPhotoContainer from "../../components/containers/MainPhotoContainer";
 import {ContentContainer} from "../../components/Layout/Layout.Styled";
 
-const Home = () => {
+const Home = (props) => {
+    
+    console.log("@@ props", props);
 
     return (
         <Container>

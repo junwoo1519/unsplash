@@ -1,8 +1,12 @@
 const initialState = {
     list: {
-        results:[]
+        results: []
     },
-    TopPhoto: {
+    topPhoto: {
+        results: []
+    },
+    relatedPhoto: {
+        results: []
     }
 }
 
@@ -11,6 +15,7 @@ export const Action = {
         UPDATE_STATE: "PHOTO/UPDATE_STATE",
         GET_PHOTOS: "GET_PHOTOS",
         GET_PHOTO: "GET_PHOTO",
+        GET_RELATED_PHOTOS: "GET_RELATED_PHOTOS",
     },
 
     Creators: {
@@ -28,6 +33,11 @@ export const Action = {
             type: Action.Types.GET_PHOTO,
             payload
         }),
+
+        getRelatedPhotos: (payload) => ({
+            type: Action.Types.GET_RELATED_PHOTOS,
+            payload
+        })
     }
 }
 

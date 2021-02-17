@@ -10,6 +10,8 @@ const SearchPhotoContainer = ({match}) => {
     const query = match.params.query;
     const dispatch = useDispatch();
     const {photos} = useSelector(state => state.search);
+    
+    console.log("@@ photos", photos);
 
     useEffect(() => {
         searchPhotos();

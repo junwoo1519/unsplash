@@ -15,7 +15,7 @@ const PhotoList = ({list}) => {
                     <Group key={i}>
                         {
                             group.map((item, i) => (
-                                <Link to={`/photo/${item.id}`}>
+                                <Link to={`/photo/${item.id}`} key={i}>
                                     <Col key={i}>
                                         <PhotoItem {...item}/>
                                     </Col>

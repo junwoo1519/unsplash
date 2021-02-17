@@ -5,30 +5,34 @@ import {Action} from "../../../redux/photo/redux";
 import Consts from "../../../constants";
 import Photo from "../Photo/Photo";
 
-const PhotoContainer = () => {
+const PhotoContainer = ({match}) => {
 
+    const id = match.params.id
     const dispatch = useDispatch();
-    const {TopPhoto} = useSelector(state => state.photo);
+    const {topPhoto} = useSelector(state => state.photo);
 
     useEffect(() => {
-        getPhoto()
-    }, [])
+        getTitlePhoto()
+    }, [id]);
 
-    const getPhoto = () => {
+    const getTitlePhoto = () => {
         dispatch(Action.Creators.getPhoto({
             client_id: Consts.CLIENT_ID,
+            id,
         }))
     }
 
+
     return (
         <Container>
-            <Photo photo={TopPhoto}/>
+            <Photo photo={topPhoto}/>
         </Container>
     )
 }
 
 const Container = styled.div`
-
+  width: 85%;
+  margin: 0 auto;
 `;
 
 export default PhotoContainer;

@@ -1,14 +1,13 @@
 const initialState = {
-    topPhoto: {
+    slug : {
         results: []
-    },
+    }
 }
 
 export const Action = {
     Types: {
-        UPDATE_STATE: "PHOTO/UPDATE_STATE",
-        GET_PHOTOS: "GET_PHOTOS",
-        GET_PHOTO: "GET_PHOTO",
+        UPDATE_STATE: "TOPIC/UPDATE_STATE",
+        GET_TOPIC_SLUG: "GET_TOPIC_SLUG",
     },
 
     Creators: {
@@ -17,13 +16,8 @@ export const Action = {
             props
         }),
 
-        getPhotos: (payload) => ({
-            type: Action.Types.GET_PHOTOS,
-            payload
-        }),
-
-        getPhoto: (payload) => ({
-            type: Action.Types.GET_PHOTO,
+        topicSlug: (payload) => ({
+            type: Action.Types.GET_TOPIC_SLUG,
             payload
         }),
     }

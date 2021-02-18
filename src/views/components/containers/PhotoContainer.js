@@ -7,7 +7,7 @@ import Photo from "../Photo/Photo";
 
 const PhotoContainer = ({match}) => {
 
-    const id = match.params.id
+    const id = match.params.id;
     const dispatch = useDispatch();
     const {topPhoto} = useSelector(state => state.photo);
 
@@ -22,10 +22,11 @@ const PhotoContainer = ({match}) => {
         }))
     }
 
+    if (!topPhoto.id) return null;
 
     return (
         <Container>
-            <Photo photo={topPhoto}/>
+            <Photo {...topPhoto}/>
         </Container>
     )
 }

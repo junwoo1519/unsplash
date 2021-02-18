@@ -20,6 +20,8 @@ const MainPhotoContainer = () => {
             per_page: 15,
         }))
     }
+
+    if (!list) return null;
     
     return (
         <Container>

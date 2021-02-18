@@ -7,21 +7,26 @@ import {FiDownload} from "react-icons/fi";
 import {IoIosShareAlt} from "react-icons/io";
 import {AiFillInfoCircle} from "react-icons/all";
 
-const Photo = ({photo}) => {
+const Photo = (props) => {
+
+    const {
+        user,
+        urls,
+    } = props;
 
     return (
         <Container>
             <Header>
                 <Desc>
                     <Avatar>
-                        <img src={photo.user.profile_image.small} alt=""/>
+                        <img src={user.profile_image.small} alt=""/>
                     </Avatar>
                     <Name>
                         <User>
-                            <p>{photo.user.name}</p>
+                            <p>{user.name}</p>
                         </User>
                         <Username>
-                            <p>@{photo.user.username}</p>
+                            <p>@{user.username}</p>
                         </Username>
                     </Name>
                 </Desc>
@@ -41,7 +46,7 @@ const Photo = ({photo}) => {
                 </Add>
             </Header>
             <Thumb>
-                <img src={photo.urls.small} alt=""/>
+                <img src={urls.small} alt=""/>
             </Thumb>
             <Share>
                 <ShareBtn>
@@ -191,5 +196,6 @@ const ShareBtn = styled(Likes)`
 const InfoBtn = styled(ShareBtn)`
 
 `;
+
 
 export default Photo;

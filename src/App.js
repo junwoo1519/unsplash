@@ -9,6 +9,7 @@ import Topics from "./views/components/Topics";
 import Login from "./views/pages/Login";
 import Search from "./views/pages/Search";
 import Photo from "./views/pages/Photo";
+import Topic from "./views/pages/Topic";
 
 const App = () => {
 
@@ -25,6 +26,7 @@ const App = () => {
                 <Route path={`/login`} component={Login}/>
                 <Route path={"/search/:category/:query"} component={Search}/>
                 <Route path={`/photo/:id`} component={Photo}/>
+                <Route path={`/topics/:query`} component={Topic}/>
             </Switch>
 
         </Container>

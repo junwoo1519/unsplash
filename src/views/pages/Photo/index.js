@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import PhotoContainer from "../../components/containers/PhotoContainer";
-import PhotoRelatedContainer from "../../components/containers/PhoroRelatedContainer";
+import CollectionRelatedContainer from "../../components/containers/CollectionRelatedContainer";
 
 const Photo = (props) => {
 
     return (
         <Container>
             <PhotoContainer {...props}/>
-            <PhotoRelatedContainer {...props}/>
+            <CollectionRelatedContainer {...props}/>
         </Container>
     )
 }

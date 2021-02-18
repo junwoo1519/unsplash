@@ -19,10 +19,7 @@ const Topics = () => {
             params: {
                 client_id: Consts.CLIENT_ID,
                 per_page: 30
-
             }
-
-
         })
         setTopic(result.data)
     }

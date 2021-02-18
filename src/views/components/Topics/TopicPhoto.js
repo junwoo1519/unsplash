@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import TopicContainer from "../../components/containers/TopicContainer";
 
-const Topic = (props) => {
+const TopicPhoto = () => {
 
     return (
         <Container>
-            <TopicContainer {...props}/>
+            TopicPhoto
         </Container>
     )
 }
@@ -15,4 +14,4 @@ const Container = styled.div`
 
 `;
 
-export default Topic;
+export default TopicPhoto;

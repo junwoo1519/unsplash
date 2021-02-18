@@ -45,7 +45,7 @@ const TopicsMenu = ({topics}) => {
                 <Track ref={trackRef}>
                     {
                         topics.map((topic, i) => (
-                            <TopicItemStyled to={`/topic/${topic.title}`} key={i}>{topic.title}</TopicItemStyled>
+                            <TopicItemStyled to={`/topics/${topic.title}`} key={i}>{topic.title}</TopicItemStyled>
                         ))
                     }
                 </Track>

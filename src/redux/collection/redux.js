@@ -1,14 +1,13 @@
 const initialState = {
-    topPhoto: {
+    listRelated: {
         results: []
     },
 }
 
 export const Action = {
     Types: {
-        UPDATE_STATE: "PHOTO/UPDATE_STATE",
-        GET_PHOTOS: "GET_PHOTOS",
-        GET_PHOTO: "GET_PHOTO",
+        UPDATE_STATE: "COLLECTION/UPDATE_STATE",
+        COLLECTION_RELATED: "COLLECTION_RELATED",
     },
 
     Creators: {
@@ -17,15 +16,10 @@ export const Action = {
             props
         }),
 
-        getPhotos: (payload) => ({
-            type: Action.Types.GET_PHOTOS,
+        collectionRelated: (payload) => ({
+            type: Action.Types.COLLECTION_RELATED,
             payload
-        }),
-
-        getPhoto: (payload) => ({
-            type: Action.Types.GET_PHOTO,
-            payload
-        }),
+        })
     }
 }
 

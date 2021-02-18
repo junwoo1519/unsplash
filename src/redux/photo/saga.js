@@ -21,15 +21,6 @@ const saga = function* () {
                 }))
             }
         }),
-
-        takeLatest(Action.Types.GET_RELATED_PHOTOS, function* ({payload}) {
-            const result = yield call(API.getRelatedPhotos, payload);
-            if (result.data) {
-                yield put(Action.Creators.updateState({
-                    relatedPhoto: result.data
-                }))
-            }
-        }),
     ])
 }
 

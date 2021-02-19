@@ -26,7 +26,7 @@ const App = () => {
                 <Route path={`/login`} component={Login}/>
                 <Route path={"/search/:category/:query"} component={Search}/>
                 <Route path={`/photo/:id`} component={Photo}/>
-                <Route path={`/topics/:query`} component={Topic}/>
+                <Route path={`/topics/:id`} component={Topic}/>
             </Switch>
 
         </Container>

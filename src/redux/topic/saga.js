@@ -8,7 +8,7 @@ const saga = function* () {
             const result = yield call(API.topicSlug, payload);
             if (result.data) {
                 yield put(Action.Creators.updateState({
-                    slug: result.data
+                    slugs: result.data
                 }))
             }
         }),

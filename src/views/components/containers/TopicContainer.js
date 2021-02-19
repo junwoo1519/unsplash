@@ -8,26 +8,26 @@ import TopicSlug from "../Topics/TopicSlug";
 
 const TopicContainer = ({match}) => {
 
-    const query = match.params.query;
+    const id = match.params.id;
     const dispatch = useDispatch();
-    const {slug} = useSelector(state => state.topic);
-
-    console.log("@@ slug", slug);
+    const {slugs} = useSelector(state => state.topic);
 
     useEffect(() => {
         getSlugAndPhoto();
-    }, [query])
+    }, [id])
 
     const getSlugAndPhoto = () => {
-        dispatch(Action.Creators.topicSlug( {
+        dispatch(Action.Creators.topicSlug({
             client_id: Consts.CLIENT_ID,
-            query
+            id,
         }))
     }
 
+    if (!slugs.id) return null;
+
     return (
         <Container>
-            <TopicSlug {...slug}/>
+            <TopicSlug {...slugs}/>
             <TopicPhoto/>
         </Container>
     )

@@ -3,7 +3,6 @@ import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../../redux/topic/redux";
 import Consts from "../../../constants";
-import TopicPhoto from "../Topics/TopicPhoto";
 import TopicSlug from "../Topics/TopicSlug";
 
 const TopicContainer = ({match}) => {
@@ -28,7 +27,6 @@ const TopicContainer = ({match}) => {
     return (
         <Container>
             <TopicSlug {...slugs}/>
-            <TopicPhoto/>
         </Container>
     )
 }

@@ -11,8 +11,6 @@ const CollectionRelatedContainer = ({match}) => {
     const dispatch = useDispatch();
     const {listRelated} = useSelector(state => state.collection);
 
-    console.log("@@ relatedPhot", listRelated);
-
     useEffect(() => {
         getRelatedList()
     }, [])

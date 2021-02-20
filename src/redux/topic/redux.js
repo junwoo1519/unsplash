@@ -1,5 +1,9 @@
 const initialState = {
-    slugs : {
+    slugs: {
+        results: []
+    },
+
+    slugPhotos: {
         results: []
     }
 }
@@ -8,6 +12,7 @@ export const Action = {
     Types: {
         UPDATE_STATE: "TOPIC/UPDATE_STATE",
         GET_TOPIC_SLUG: "GET_TOPIC_SLUG",
+        GET_TOPIC_PHOTO: "GET_TOPIC_PHOTO",
     },
 
     Creators: {
@@ -18,6 +23,11 @@ export const Action = {
 
         topicSlug: (payload) => ({
             type: Action.Types.GET_TOPIC_SLUG,
+            payload
+        }),
+
+        topicPhoto: (payload) => ({
+            type: Action.Types.GET_TOPIC_PHOTO,
             payload
         }),
     }

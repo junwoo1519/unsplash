@@ -1,5 +1,10 @@
 const initialState = {
+    isLoading : false,
+    list: [],
     topPhoto: {
+        results: []
+    },
+    collection: {
         results: []
     },
 }
@@ -9,6 +14,7 @@ export const Action = {
         UPDATE_STATE: "PHOTO/UPDATE_STATE",
         GET_PHOTOS: "GET_PHOTOS",
         GET_PHOTO: "GET_PHOTO",
+        COLLECTIONS_RELATED: "COLLECTIONS_RELATED",
     },
 
     Creators: {
@@ -24,6 +30,11 @@ export const Action = {
 
         getPhoto: (payload) => ({
             type: Action.Types.GET_PHOTO,
+            payload
+        }),
+
+        collectionsRelated: (payload) => ({
+            type: Action.Types.COLLECTIONS_RELATED,
             payload
         }),
     }

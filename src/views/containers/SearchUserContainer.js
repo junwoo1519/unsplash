@@ -1,10 +1,10 @@
 import React, {useEffect} from "react";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
-import {Action} from "../../../redux/search/redux";
-import SearchList from "../Search/SearchList";
-import UserItem from "../Search/UserItem";
-import Consts from "../../../constants";
+import {Action} from "../../redux/search/redux";
+import SearchList from "../components/Search/SearchList";
+import UserItem from "../components/Search/UserItem";
+import Consts from "../../constants";
 
 const SearchUserContainer = ({match}) => {
 

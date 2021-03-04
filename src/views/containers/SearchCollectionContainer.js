@@ -1,10 +1,10 @@
 import React, {useEffect} from "react";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
-import {Action} from "../../../redux/search/redux";
-import SearchList from "../Search/SearchList";
-import CollectionItem from "../Search/CollectionItem";
-import Consts from "../../../constants";
+import {Action} from "../../redux/search/redux";
+import SearchList from "../components/Search/SearchList";
+import CollectionItem from "../components/Search/CollectionItem";
+import Consts from "../../constants";
 
 const SearchCollectionContainer = ({match}) => {
 
@@ -31,6 +31,8 @@ const SearchCollectionContainer = ({match}) => {
             <CollectionItem {...item}/>
         )
     }
+    
+    console.log("@@ collections", collections);
 
     return (
         <Container>

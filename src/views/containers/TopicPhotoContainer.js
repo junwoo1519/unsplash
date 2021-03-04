@@ -1,10 +1,10 @@
 import React, {useEffect} from "react";
 import styled from "styled-components";
-import PhotoList from "../Photo/PhotoList";
+import PhotoList from "../components/Photo/PhotoList";
 import {useDispatch, useSelector} from "react-redux";
-import Consts from "../../../constants";
-import {Action} from "../../../redux/topic/redux";
-import {ContentContainer} from "../Layout/Layout.Styled";
+import Consts from "../../constants";
+import {Action} from "../../redux/topic/redux";
+import {ContentContainer} from "../components/Layout/Layout.Styled";
 
 const TopicPhotoContainer = ({match}) => {
 

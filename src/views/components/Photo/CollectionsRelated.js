@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Tags from "../Tags";
 
-const CollectionItem = (props) => {
+const CollectionsRelated = (props) => {
 
     const {
         preview_photos,
@@ -14,27 +14,21 @@ const CollectionItem = (props) => {
 
     return (
         <Container>
+            <Title>
+                Related collections
+            </Title>
             <Thumb>
                 <ThumbItemLeft>
-                    <Image className={"left"}>
-                        {
-                            preview_photos[0] &&
-                            <img src={preview_photos[0]?.urls.regular} alt=""/>
-                        }
+                    <Image className={"lefts"}>
+                        <img src={preview_photos.urls.regular} alt=""/>
                     </Image>
                 </ThumbItemLeft>
                 <ThumbItemRight>
-                    <Image className={"right"}>
-                        {
-                            preview_photos[1] &&
-                            <img src={preview_photos[1]?.urls.regular} alt=""/>
-                        }
+                    <Image className={"rights"}>
+                        <img src={preview_photos.urls.regular} alt=""/>
                     </Image>
-                    <Image className={"right"}>
-                        {
-                            preview_photos[2] &&
-                            <img src={preview_photos[2]?.urls.regular} alt=""/>
-                        }
+                    <Image className={"rights"}>
+                        <img src={preview_photos.urls.regular} alt=""/>
                     </Image>
                 </ThumbItemRight>
             </Thumb>
@@ -48,6 +42,14 @@ const CollectionItem = (props) => {
 }
 
 const Container = styled.div`
+`;
+
+const Title = styled.div`
+  color: #343434;
+  margin: 0 10%;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 60px 12px;
 `;
 
 const Thumb = styled.div`
@@ -71,11 +73,11 @@ const ThumbItemRight = styled.div`
 const Image = styled.div`
   position: relative;
 
-  &.left {
+  &.lefts {
     padding-bottom: 100%;
   }
 
-  &.right {
+  &.rights {
     height: calc(50% - 1px);
     background-color: #eee;
   }
@@ -108,4 +110,4 @@ const Desc = styled.div`
   }
 `;
 
-export default CollectionItem;
+export default CollectionsRelated;

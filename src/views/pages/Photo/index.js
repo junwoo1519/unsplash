@@ -1,20 +1,29 @@
 import React from "react";
 import styled from "styled-components";
-import PhotoContainer from "../../components/containers/PhotoContainer";
-import CollectionRelatedContainer from "../../components/containers/CollectionRelatedContainer";
+import PhotoContainer from "../../containers/PhotoContainer";
+import CollectionRelatedContainer from "../../containers/CollectionRelatedContainer";
+import CollectionsRelatedContainer from "../../containers/CollectionsRelatedContainer";
 
 const Photo = (props) => {
 
     return (
         <Container>
             <PhotoContainer {...props}/>
-            <CollectionRelatedContainer {...props}/>
+            <Related>
+                <CollectionRelatedContainer {...props}/>
+                <CollectionsRelatedContainer {...props}/>
+            </Related>
         </Container>
     )
 }
 
 const Container = styled.div`
 
+`;
+
+const Related = styled.div`
+  width: 85%;
+  margin: 0 auto;
 `;
 
 export default Photo;

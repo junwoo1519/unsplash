@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import SearchPhotoContainer from "../../components/containers/SearchPhotoContainer";
+import SearchPhotoContainer from "../../containers/SearchPhotoContainer";
 import PageTitle from "../../components/Title/PageTitle";
 import {ContentContainer} from "../../components/Layout/Layout.Styled";
-import SearchCollectionContainer from "../../components/containers/SearchCollectionContainer";
+import SearchCollectionContainer from "../../containers/SearchCollectionContainer";
 import SearchAppbar from "../../components/Search/SearchAppbar";
-import SearchUserContainer from "../../components/containers/SearchUserContainer";
+import SearchUserContainer from "../../containers/SearchUserContainer";
 
 const Search = (props) => {
 

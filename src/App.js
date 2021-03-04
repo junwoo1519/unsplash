@@ -34,7 +34,6 @@ const App = () => {
 }
 
 const Container = styled.div`
-
 `;
 
 const GlobalStyled = createGlobalStyle`

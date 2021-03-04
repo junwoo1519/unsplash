@@ -4,7 +4,7 @@ import PhotoItem from "./PhotoItem";
 import {composeList} from "../../../lib/common";
 import {Link} from "react-router-dom";
 
-const PhotoList = ({list}) => {
+const PhotoList = ({list = []}) => {
 
     const listGroups = composeList(list);
 

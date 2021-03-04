@@ -1,17 +1,15 @@
 import React,{useEffect} from "react";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
-import {Action} from "../../../redux/search/redux";
-import PhotoList from "../Photo/PhotoList";
-import Consts from "../../../constants";
+import {Action} from "../../redux/search/redux";
+import PhotoList from "../components/Photo/PhotoList";
+import Consts from "../../constants";
 
 const SearchPhotoContainer = ({match}) => {
 
     const query = match.params.query;
     const dispatch = useDispatch();
     const {photos} = useSelector(state => state.search);
-    
-    console.log("@@ photos", photos);
 
     useEffect(() => {
         searchPhotos();

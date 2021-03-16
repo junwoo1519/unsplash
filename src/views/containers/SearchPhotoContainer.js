@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, {useEffect, useCallback} from "react";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/search/redux";
@@ -11,17 +11,25 @@ const SearchPhotoContainer = ({match}) => {
     const dispatch = useDispatch();
     const {photos} = useSelector(state => state.search);
 
-    useEffect(() => {
-        searchPhotos();
-    }, [])
-
-    const searchPhotos = () => {
+    const searchPhotos = useCallback(() => {
         dispatch(Action.Creators.searchPhotos({
             query,
             client_id: Consts.CLIENT_ID,
             per_page: 15,
         }))
-    }
+    }, [dispatch, query]);
+
+    useEffect(() => {
+        searchPhotos();
+    }, [searchPhotos]);
+
+    // const searchPhotos = () => {
+    //     dispatch(Action.Creators.searchPhotos({
+    //         query,
+    //         client_id: Consts.CLIENT_ID,
+    //         per_page: 15,
+    //     }))
+    // };
 
     return (
         <Container>

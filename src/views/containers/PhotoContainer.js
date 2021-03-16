@@ -16,7 +16,12 @@ const PhotoContainer = ({match}) => {
             client_id: Consts.CLIENT_ID,
             id,
         }))
-    }, [dispatch]);
+    }, [dispatch, id]);
+
+
+    useEffect(() => {
+        getTitlePhoto();
+    }, [getTitlePhoto]);
 
     // const getTitlePhoto = () => {
     //     dispatch(Action.Creators.getPhoto({
@@ -24,10 +29,6 @@ const PhotoContainer = ({match}) => {
     //         id,
     //     }))
     // };
-
-    useEffect(() => {
-        getTitlePhoto()
-    }, [getTitlePhoto]);
 
     if (!topPhoto.id) return null;
 

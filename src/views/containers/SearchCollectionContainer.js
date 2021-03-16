@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useCallback} from "react";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/search/redux";
@@ -12,18 +12,24 @@ const SearchCollectionContainer = ({match}) => {
     const query = match.params.query;
     const {collections} = useSelector(state => state.search)
 
+    const searchCollection = useCallback(() => {
+        dispatch(Action.Creators.getPhoto({
+            client_id: Consts.CLIENT_ID,
+            query,
+        }))
+    }, [dispatch, query]);
+
     useEffect(() => {
         searchCollection();
-    }, [])
+    }, [searchCollection]);
 
-    const searchCollection = () => {
-        dispatch(Action.Creators.searchCollections({
-            query,
-            client_id: Consts.CLIENT_ID,
-            per_page: 15,
-        }))
-
-    }
+    // const searchCollection = () => {
+    //     dispatch(Action.Creators.searchCollections({
+    //         query,
+    //         client_id: Consts.CLIENT_ID,
+    //         per_page: 15,
+    //     }))
+    // };
 
     const render = (item, index) => {
 

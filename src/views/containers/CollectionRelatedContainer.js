@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useCallback} from "react";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/collection/redux";
@@ -11,16 +11,23 @@ const CollectionRelatedContainer = ({match}) => {
     const dispatch = useDispatch();
     const {listRelated} = useSelector(state => state.collection);
 
-    useEffect(() => {
-        getRelatedList()
-    }, [])
-
-    const getRelatedList = () => {
+    const getRelatedList = useCallback(() => {
         dispatch(Action.Creators.collectionRelated( {
             client_id: Consts.CLIENT_ID,
             id,
         }))
-    }
+    }, [dispatch, id]);
+
+    useEffect(() => {
+        getRelatedList();
+    }, [getRelatedList]);
+
+    // const getRelatedList = () => {
+    //     dispatch(Action.Creators.collectionRelated( {
+    //         client_id: Consts.CLIENT_ID,
+    //         id,
+    //     }))
+    // };
 
     return (
         <Container>

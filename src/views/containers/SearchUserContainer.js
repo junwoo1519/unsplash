@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useCallback} from "react";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/search/redux";
@@ -12,18 +12,25 @@ const SearchUserContainer = ({match}) => {
     const query = match.params.query;
     const {users} = useSelector(state => state.search)
 
-    useEffect(() => {
-        searchUsers();
-    }, [])
-
-    const searchUsers = () => {
+    const searchUsers = useCallback(() => {
         dispatch(Action.Creators.searchUsers({
             query,
             client_id: Consts.CLIENT_ID,
             per_page: 15,
         }))
+    }, [dispatch, query]);
 
-    }
+    useEffect(() => {
+        searchUsers();
+    }, [searchUsers]);
+
+    // const searchUsers = () => {
+    //     dispatch(Action.Creators.searchUsers({
+    //         query,
+    //         client_id: Consts.CLIENT_ID,
+    //         per_page: 15,
+    //     }))
+    // };
 
     const render = (item, index) => {
 

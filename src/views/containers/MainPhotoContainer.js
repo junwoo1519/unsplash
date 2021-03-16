@@ -20,7 +20,7 @@ const MainPhotoContainer = () => {
     }, [dispatch, page]);
 
     useEffect(() => {
-        getList()
+        getList();
     }, [page, getList]);
 
     // const getList = () => {

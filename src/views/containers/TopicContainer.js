@@ -16,11 +16,11 @@ const TopicContainer = ({match}) => {
             client_id: Consts.CLIENT_ID,
             id,
         }))
-    }, [dispatch]);
+    }, [dispatch, id]);
 
     useEffect(() => {
         getSlugAndPhoto();
-    }, [getSlugAndPhoto])
+    }, [getSlugAndPhoto]);
 
     // const getSlugAndPhoto = () => {
     //     dispatch(Action.Creators.topicSlug({

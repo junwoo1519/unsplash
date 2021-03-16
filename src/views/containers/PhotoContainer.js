@@ -12,8 +12,8 @@ const PhotoContainer = ({match}) => {
     const {topPhoto} = useSelector(state => state.photo);
 
     useEffect(() => {
-        getTitlePhoto(id)
-    }, [id]);
+        getTitlePhoto()
+    });
 
     const getTitlePhoto = () => {
         dispatch(Action.Creators.getPhoto({

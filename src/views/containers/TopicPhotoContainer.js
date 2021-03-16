@@ -12,11 +12,10 @@ const TopicPhotoContainer = ({match}) => {
     const dispatch = useDispatch();
     const {slugPhotos} = useSelector(state => state.topic);
 
-    console.log("@@ topicPhotos", slugPhotos);
 
     useEffect(() => {
         getTopicPhotos()
-    }, [id])
+    }, [])
 
     const getTopicPhotos = () => {
         dispatch(Action.Creators.topicPhoto({

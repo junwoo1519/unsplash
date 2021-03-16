@@ -13,12 +13,12 @@ const TopicPhotoContainer = ({match}) => {
     const {slugPhotos} = useSelector(state => state.topic);
 
     const getTopicPhotos = useCallback(() => {
-        dispatch(Action.Creators.topicSlug({
+        dispatch(Action.Creators.topicPhoto({
             client_id: Consts.CLIENT_ID,
             id,
         }))
     }, [dispatch, id]);
-    
+
     useEffect(() => {
         getTopicPhotos()
     }, [getTopicPhotos])

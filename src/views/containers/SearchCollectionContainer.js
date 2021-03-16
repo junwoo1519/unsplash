@@ -13,7 +13,7 @@ const SearchCollectionContainer = ({match}) => {
     const {collections} = useSelector(state => state.search)
 
     const searchCollection = useCallback(() => {
-        dispatch(Action.Creators.getPhoto({
+        dispatch(Action.Creators.searchCollections({
             client_id: Consts.CLIENT_ID,
             query,
         }))

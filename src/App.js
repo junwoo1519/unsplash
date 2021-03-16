@@ -1,5 +1,6 @@
 import React from "react";
 import styled, {createGlobalStyle} from "styled-components";
+import media from "styled-media-query";
 import Header from "./views/components/Header";
 import {Switch, Route} from "react-router-dom";
 

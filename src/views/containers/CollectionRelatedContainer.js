@@ -13,7 +13,7 @@ const CollectionRelatedContainer = ({match}) => {
 
     useEffect(() => {
         getRelatedList()
-    })
+    }, [])
 
     const getRelatedList = () => {
         dispatch(Action.Creators.collectionRelated( {

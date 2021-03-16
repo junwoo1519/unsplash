@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useCallback} from "react";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/topic/redux";
@@ -11,16 +11,23 @@ const TopicContainer = ({match}) => {
     const dispatch = useDispatch();
     const {slugs} = useSelector(state => state.topic);
 
-    useEffect(() => {
-        getSlugAndPhoto(id);
-    }, [id])
-
-    const getSlugAndPhoto = () => {
+    const getSlugAndPhoto = useCallback(() => {
         dispatch(Action.Creators.topicSlug({
             client_id: Consts.CLIENT_ID,
             id,
         }))
-    }
+    }, [dispatch]);
+
+    useEffect(() => {
+        getSlugAndPhoto();
+    }, [getSlugAndPhoto])
+
+    // const getSlugAndPhoto = () => {
+    //     dispatch(Action.Creators.topicSlug({
+    //         client_id: Consts.CLIENT_ID,
+    //         id,
+    //     }))
+    // };
 
     if (!slugs.id) return null;
 

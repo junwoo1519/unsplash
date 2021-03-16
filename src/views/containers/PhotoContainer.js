@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useCallback} from "react";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/photo/redux";
@@ -11,16 +11,23 @@ const PhotoContainer = ({match}) => {
     const dispatch = useDispatch();
     const {topPhoto} = useSelector(state => state.photo);
 
-    useEffect(() => {
-        getTitlePhoto()
-    });
-
-    const getTitlePhoto = () => {
+    const getTitlePhoto = useCallback(() => {
         dispatch(Action.Creators.getPhoto({
             client_id: Consts.CLIENT_ID,
             id,
         }))
-    }
+    }, [dispatch]);
+
+    // const getTitlePhoto = () => {
+    //     dispatch(Action.Creators.getPhoto({
+    //         client_id: Consts.CLIENT_ID,
+    //         id,
+    //     }))
+    // };
+
+    useEffect(() => {
+        getTitlePhoto()
+    }, [getTitlePhoto]);
 
     if (!topPhoto.id) return null;
 

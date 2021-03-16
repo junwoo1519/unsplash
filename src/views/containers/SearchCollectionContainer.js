@@ -14,7 +14,7 @@ const SearchCollectionContainer = ({match}) => {
 
     useEffect(() => {
         searchCollection();
-    })
+    }, [])
 
     const searchCollection = () => {
         dispatch(Action.Creators.searchCollections({

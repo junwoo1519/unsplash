@@ -14,7 +14,7 @@ const SearchUserContainer = ({match}) => {
 
     useEffect(() => {
         searchUsers();
-    })
+    }, [])
 
     const searchUsers = () => {
         dispatch(Action.Creators.searchUsers({

@@ -8,20 +8,28 @@ import Consts from "../../constants";
 const MainPhotoContainer = () => {
 
     const dispatch = useDispatch();
-    const [page, setPage] = useState(1);
     const {list, isLoading} = useSelector(state => state.photo);
+    const [page, setPage] = useState(1);
 
-    useEffect(() => {
-        getList(page)
-    }, [page]);
-
-    const getList = () => {
+    const getList = useCallback(() => {
         dispatch(Action.Creators.getPhotos({
             client_id: Consts.CLIENT_ID,
             per_page: 15,
             page
-        }))
-    };
+        }));
+    }, [dispatch, page]);
+
+    useEffect(() => {
+        getList()
+    }, [page, getList]);
+
+    // const getList = () => {
+    //     dispatch(Action.Creators.getPhotos({
+    //         client_id: Consts.CLIENT_ID,
+    //         per_page: 15,
+    //         page
+    //     }))
+    // };
 
     const observer = useRef();
 

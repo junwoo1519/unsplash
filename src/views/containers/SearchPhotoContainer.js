@@ -12,8 +12,8 @@ const SearchPhotoContainer = ({match}) => {
     const {photos} = useSelector(state => state.search);
 
     useEffect(() => {
-        searchPhotos(query);
-    }, [query])
+        searchPhotos();
+    }, [])
 
     const searchPhotos = () => {
         dispatch(Action.Creators.searchPhotos({

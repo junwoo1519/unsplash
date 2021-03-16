@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useCallback} from "react";
 import styled from "styled-components";
 import PhotoList from "../components/Photo/PhotoList";
 import {useDispatch, useSelector} from "react-redux";
@@ -12,18 +12,24 @@ const TopicPhotoContainer = ({match}) => {
     const dispatch = useDispatch();
     const {slugPhotos} = useSelector(state => state.topic);
 
-
-    useEffect(() => {
-        getTopicPhotos()
-    }, [])
-
-    const getTopicPhotos = () => {
-        dispatch(Action.Creators.topicPhoto({
+    const getTopicPhotos = useCallback(() => {
+        dispatch(Action.Creators.topicSlug({
             client_id: Consts.CLIENT_ID,
-            per_page: 30,
             id,
         }))
-    }
+    }, [dispatch, id]);
+    
+    useEffect(() => {
+        getTopicPhotos()
+    }, [getTopicPhotos])
+
+    // const getTopicPhotos = () => {
+    //     dispatch(Action.Creators.topicPhoto({
+    //         client_id: Consts.CLIENT_ID,
+    //         per_page: 30,
+    //         id,
+    //     }));
+    // };
 
     return (
         <Container>
@@ -33,7 +39,7 @@ const TopicPhotoContainer = ({match}) => {
 }
 
 const Container = styled(ContentContainer)`
-    margin-top: 80px;
+  margin-top: 80px;
 `;
 
 export default TopicPhotoContainer;

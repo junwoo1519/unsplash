@@ -12,7 +12,7 @@ const MainPhotoContainer = () => {
     const {list, isLoading} = useSelector(state => state.photo);
 
     useEffect(() => {
-        getList()
+        getList(page)
     }, [page]);
 
     const getList = () => {

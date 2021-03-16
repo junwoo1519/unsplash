@@ -12,7 +12,7 @@ const PhotoContainer = ({match}) => {
     const {topPhoto} = useSelector(state => state.photo);
 
     useEffect(() => {
-        getTitlePhoto()
+        getTitlePhoto(id)
     }, [id]);
 
     const getTitlePhoto = () => {

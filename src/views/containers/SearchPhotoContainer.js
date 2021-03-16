@@ -12,7 +12,7 @@ const SearchPhotoContainer = ({match}) => {
     const {photos} = useSelector(state => state.search);
 
     useEffect(() => {
-        searchPhotos();
+        searchPhotos(query);
     }, [query])
 
     const searchPhotos = () => {

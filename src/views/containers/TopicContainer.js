@@ -11,7 +11,7 @@ const TopicContainer = ({match}) => {
     const dispatch = useDispatch();
     const {slugs} = useSelector(state => state.topic);
 
-    useEffect(() => {
+    useEffect((id) => {
         getSlugAndPhoto();
     }, [id])
 

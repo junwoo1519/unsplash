@@ -35,6 +35,6 @@ const request = (method, url, data) => {
 export const FetchJson = {
     get: (url, data) => request(FetchConsts.GET, url, data),
     post: (url, data) => request(FetchConsts.POST, url, data),
-    put: (url, data) => request(FetchConsts.POST, url, data),
+    put: (url, data) => request(FetchConsts.PUT, url, data),
     delete: (url, data) => request(FetchConsts.DELETE, url, data),
 }

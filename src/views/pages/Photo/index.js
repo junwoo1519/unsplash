@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import PhotoContainer from "../../containers/PhotoContainer";
 import CollectionRelatedContainer from "../../containers/CollectionRelatedContainer";
-import CollectionsRelatedContainer from "../../containers/CollectionsRelatedContainer";
 
 const Photo = (props) => {
 
@@ -11,7 +10,6 @@ const Photo = (props) => {
             <PhotoContainer {...props}/>
             <Related>
                 <CollectionRelatedContainer {...props}/>
-                <CollectionsRelatedContainer {...props}/>
             </Related>
         </Container>
     )
